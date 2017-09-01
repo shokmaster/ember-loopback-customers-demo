@@ -45,5 +45,6 @@ deploy:
   bucket: $S3_BUCKET_DEV
   skip_cleanup: true
   local-dir: dist
+  acl: public_read
   on:
-    branch: bugfix-deploy
+    branch: develop
