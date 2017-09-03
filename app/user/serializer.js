@@ -1,8 +1,9 @@
 import DS from 'ember-data';
 
 /**
- * The user serializer is configured to omit "confirmation" fields from
- * serialized payloads, as these should not be sent in API requests.
+ * The {@link module:app/user/model|User} serializer is configured to omit
+ * -`Confirmation` fields from serialized payloads, as these should not be sent
+ * in API requests.
  *
  * @module
  * @augments ember-data/JSONAPISerializer

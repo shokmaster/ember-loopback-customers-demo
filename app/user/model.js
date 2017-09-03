@@ -7,46 +7,57 @@ const { Model, attr } = DS;
 const { computed } = Ember;
 
 /**
- * A simple user model.
+ * A simple, validatable user model.
  *
  * @module
  * @augments ember-data/Model
  * @augments ember-model-validator/mixins/model-validator
  */
 export default Model.extend(Validator, {
-  // =attributes
-
-  /** @type {String} */
-  email: attr('string'),
-
-  /** @type {String} */
-  emailConfirmation: attr('string'),
-
-  /** @type {String} */
-  password: attr('string'),
-
-  /** @type {String} */
-  passwordConfirmation: attr('string'),
-
   // =properties
 
   /**
-   * Password strength report as returned by
-   * [zxcvbn](https://github.com/dropbox/zxcvbn).
+   * User's email address.
+   *
+   * @type {?String} */
+  email: attr('string'),
+
+  /**
+   * User's email address again, for validating email accuracy.
+   *
+   * @type {?String} */
+  emailConfirmation: attr('string'),
+
+  /**
+   * User's password.
+   *
+   * @type {?String} */
+  password: attr('string'),
+
+  /**
+   * User's password again, for validating password accuracy.
+   *
+   * @type {?String} */
+  passwordConfirmation: attr('string'),
+
+  /**
+   * Password strength report as returned by `zxcvbn`.
    *
    * @type {Object}
+   * @see {@link https://github.com/dropbox/zxcvbn|zxcvbn}
    */
   passwordStrength: computed('email', 'password', function () {
     const { email, password } = this.getProperties('email', 'password');
     if (password) return strength(password, [email]);
   }),
 
-  // =validations
+  // =attributes
 
   /**
    * Validations declarations.
    *
-   * @type {Object}
+   * @type {Object.<Object>}
+   * @see {@link https://www.npmjs.com/package/ember-model-validator|Ember Model Validator}
    */
   validations: {
     email: {
