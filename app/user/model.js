@@ -41,15 +41,16 @@ export default Model.extend(Validator, {
   passwordConfirmation: attr('string'),
 
   /**
-   * Password strength report as returned by `zxcvbn`.
+   * Computed property for password strength report as returned by `zxcvbn`.
    *
    * @type {Object}
+   * @readonly
    * @see {@link https://github.com/dropbox/zxcvbn|zxcvbn}
    */
   passwordStrength: computed('email', 'password', function () {
     const { email, password } = this.getProperties('email', 'password');
     if (password) return strength(password, [email]);
-  }),
+  }).readOnly(),
 
   // =attributes
 
