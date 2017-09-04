@@ -6,7 +6,7 @@ import JSONAPISerializer from 'ember-data/serializers/json-api'
  * in API requests.
  *
  * @module
- * @augments ember-data/JSONAPISerializer
+ * @augments ember-data/serializers/json-api
  */
 export default JSONAPISerializer.extend({
   // =attributes

@@ -10,7 +10,7 @@ import { computed } from '@ember/object';
  * A simple, validatable user model.
  *
  * @module
- * @augments ember-data/Model
+ * @augments ember-data/model
  * @augments ember-model-validator/mixins/model-validator
  */
 export default Model.extend(Validator, {
