@@ -10,6 +10,6 @@ import config from './config/environment';
 export default Router.extend({
   location: config.locationType,
   rootURL: config.rootURL
-}).map(() => {
-
+}).map(function () {
+  this.route('users/new');
 });
