@@ -1,10 +1,10 @@
-import Ember from 'ember';
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+
 import Validator from 'ember-model-validator/mixins/model-validator';
 import strength from 'password-strength';
 
-const { Model, attr } = DS;
-const { computed } = Ember;
+import { computed } from '@ember/object';
 
 /**
  * A simple, validatable user model.

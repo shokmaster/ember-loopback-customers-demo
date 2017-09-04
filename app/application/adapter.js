@@ -1,4 +1,4 @@
-import DS from 'ember-data';
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
 import config from '../config/environment';
 
 /**
@@ -7,7 +7,7 @@ import config from '../config/environment';
  * @module
  * @augments ember-data/adapters/json-api
  */
-export default DS.JSONAPIAdapter.extend({
+export default JSONAPIAdapter.extend({
   // =attributes
 
   /**

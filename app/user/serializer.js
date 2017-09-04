@@ -1,4 +1,4 @@
-import DS from 'ember-data';
+import JSONAPISerializer from 'ember-data/serializers/json-api'
 
 /**
  * The {@link module:app/user/model|User} serializer is configured to omit
@@ -8,7 +8,7 @@ import DS from 'ember-data';
  * @module
  * @augments ember-data/JSONAPISerializer
  */
-export default DS.JSONAPISerializer.extend({
+export default JSONAPISerializer.extend({
   // =attributes
 
   /** @type {Object} */
