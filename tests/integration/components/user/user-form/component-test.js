@@ -84,11 +84,11 @@ test('it renders validation error messages', function (assert) {
     const passwordErrors = this.get('user.errors').errorsFor('password');
     const passwordConfirmationErrors = this.get('user.errors').errorsFor('passwordConfirmation');
 
-    assert.equal(this.$('.form-group.has-danger:visible').length, 4);
-    assert.equal(this.$('.form-group:eq(0) .form-control-feedback').text(), emailErrors[0].message);
-    assert.equal(this.$('.form-group:eq(1) .form-control-feedback').text(), emailConfirmationErrors[0].message);
-    assert.equal(this.$('.form-group:eq(2) .form-control-feedback').text(), passwordErrors[0].message);
-    assert.equal(this.$('.form-group:eq(3) .form-control-feedback').text(), passwordConfirmationErrors[0].message);
+    assert.equal(this.$('.is-invalid:visible').length, 4);
+    assert.equal(this.$('.form-group:eq(0) .invalid-feedback').text(), emailErrors[0].message);
+    assert.equal(this.$('.form-group:eq(1) .invalid-feedback').text(), emailConfirmationErrors[0].message);
+    assert.equal(this.$('.form-group:eq(2) .invalid-feedback').text(), passwordErrors[0].message);
+    assert.equal(this.$('.form-group:eq(3) .invalid-feedback').text(), passwordConfirmationErrors[0].message);
   });
 });
 
