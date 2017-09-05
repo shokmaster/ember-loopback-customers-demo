@@ -8,9 +8,13 @@
       <li class="nav-item">
         {{link-to 'Home' 'application' class='nav-link'}}
       </li>
-      <li class="nav-item">
-        {{link-to 'Sign Up' 'users/new' class='nav-link'}}
-      </li>
+
+      {{#unless session.isAuthenticated}}
+        <li class="nav-item">
+          {{link-to 'Sign Up' 'users/new' class='nav-link'}}
+        </li>
+      {{/unless}}
+
     </ul>
   </div>
 </nav>

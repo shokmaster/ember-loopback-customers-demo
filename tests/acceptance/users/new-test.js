@@ -1,5 +1,6 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'ember-loopback-customers-demo/tests/helpers/module-for-acceptance';
+import { authenticateSession } from 'ember-loopback-customers-demo/tests/helpers/ember-simple-auth';
 
 moduleForAcceptance('Acceptance | users/new');
 
@@ -15,6 +16,14 @@ test('navigating to /users/new', function (assert) {
   click('[href="/users/new"]');
   andThen(function () {
     assert.equal(currentURL(), '/users/new');
+  });
+});
+
+test('navigating to /users/new redirects to root / when authenticated', function (assert) {
+  authenticateSession(this.application);
+  visit('/users/new');
+  andThen(function () {
+    assert.equal(currentURL(), '/');
   });
 });
 
