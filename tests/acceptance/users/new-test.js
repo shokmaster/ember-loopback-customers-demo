@@ -10,6 +10,14 @@ test('visiting /users/new', function (assert) {
   });
 });
 
+test('navigating to /users/new', function (assert) {
+  visit('/');
+  click('[href="/users/new"]');
+  andThen(function () {
+    assert.equal(currentURL(), '/users/new');
+  });
+});
+
 test('viewing validation errors', function (assert) {
   visit('/users/new');
   andThen(function () {
