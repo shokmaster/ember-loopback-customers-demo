@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Router from '@ember/routing/router';
 import config from './config/environment';
 
 /**
@@ -7,13 +7,9 @@ import config from './config/environment';
  * @module
  * @augments ember/Router
  */
-const Router = Ember.Router.extend({
+export default Router.extend({
   location: config.locationType,
   rootURL: config.rootURL
+}).map(function () {
+  this.route('users/new');
 });
-
-Router.map(() => {
-
-});
-
-export default Router;
