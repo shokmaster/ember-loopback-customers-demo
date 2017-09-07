@@ -2,18 +2,17 @@ import Route from '@ember/routing/route';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 /**
- * The registration route displays the user form
- * for a new, unsaved user instance.
+ * The login route displays the user login form.
  *
  * @module
- * @augments ember/route
+ * @augments ember/routing/route
  * @augments ember-simple-auth/mixins/unauthenticated-route-mixin
  */
 export default Route.extend(UnauthenticatedRouteMixin, {
   // =methods
 
   /**
-   * This route generates a newly-created user instance.
+   * This route generates a new, disposable user instance.
    *
    * @override
    * @function
@@ -33,13 +32,13 @@ export default Route.extend(UnauthenticatedRouteMixin, {
      * @returns {undefined}
      */
     willTransition() {
-      const model = this.modelFor('users/new');
+      const model = this.modelFor('users/login');
       // `rollbackAttributes` on a model that `isNew` both reverts all
       // attributes to their defaults and causes the record to be removed
       // from the store.
       // Thus, this is a good way to clean up new unsaved records that we
       // want to get rid of.
-      if (model.get('isNew')) model.rollbackAttributes();
+      model.rollbackAttributes();
     }
   }
 });

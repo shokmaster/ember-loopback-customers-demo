@@ -3,7 +3,7 @@ import { run } from '@ember/runloop';
 
 moduleFor('route:users/new', 'Unit | Route | users/new', {
   // Specify the other units that are required for this test.
-  needs: ['model:user']
+  needs: ['model:user', 'service:session']
 });
 
 test('it exists', function (assert) {
