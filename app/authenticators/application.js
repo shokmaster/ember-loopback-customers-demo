@@ -22,7 +22,7 @@ export default Loopback.extend({
    * @override
    * @type {String}
    */
-  loginEndpoint: `${config.api.host}/${config.api.namespace}/users/login`,
+  loginEndpoint: `${config.api.host || ''}/${config.api.namespace}/users/login`,
 
   /**
    * Authenticates the session with credentials from the specified user instance
@@ -44,7 +44,7 @@ export default Loopback.extend({
     const promise = this._super(email, password, scope);
     promise.catch(() => {
       user.pushErrors({
-        base: ['login failed']
+        base: ['Login failed.']
       });
     });
     return promise;

@@ -19,7 +19,7 @@ test('it exists', function (assert) {
 test('its `loginEndpoint` attribute is derived through app config', function (assert) {
   assert.expect(1);
   const authenticator = this.subject();
-  assert.equal(authenticator.get('loginEndpoint'), `${config.api.host}/${config.api.namespace}/users/login`);
+  assert.equal(authenticator.get('loginEndpoint'), `${config.api.host || ''}/${config.api.namespace}/users/login`);
 });
 
 test('its `authenticate` method calls `makeRequest` with credentials from the passed user instance', function (assert) {

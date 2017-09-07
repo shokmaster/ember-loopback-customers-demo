@@ -12,4 +12,5 @@ export default Router.extend({
   rootURL: config.rootURL
 }).map(function () {
   this.route('users/new');
+  this.route('users/login');
 });

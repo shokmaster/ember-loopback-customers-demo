@@ -23,6 +23,10 @@ module.exports = function(environment) {
     api: {
       host: null,
       namespace: 'api'
+    },
+
+    'ember-simple-auth': {
+      authenticationRoute: 'users/login'
     }
   };
 

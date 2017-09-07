@@ -121,7 +121,7 @@ test('it renders base error message', function (assert) {
   run(() => {
     this.render(hbs`{{user/login-form user=user}}`);
     const baseErrors = this.get('user.errors').errorsFor('base');
-    assert.equal(this.$('.invalid-feedback').length, 1);
-    assert.equal(this.$('.invalid-feedback').text(), baseErrors[0].message);
+    assert.equal(this.$('.text-danger:visible').length, 1);
+    assert.equal(this.$('.text-danger:visible').text(), baseErrors[0].message);
   });
 });

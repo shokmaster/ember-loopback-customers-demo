@@ -27,10 +27,11 @@
       <div class="invalid-feedback">{{error.message}}</div>
     {{/each}}
   </div><!-- /.form-group -->
-  
+
   {{#each user.errors.base as |error|}}
     <div class="form-group">
-      <div class="invalid-feedback">{{error.message}}</div>
+      {{input type="hidden"}}
+      <p class="text-danger">{{error.message}}</p>
     </div><!-- /.form-group -->
   {{/each}}
 

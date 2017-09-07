@@ -1,4 +1,5 @@
 import config from '../config/environment';
+import { Response } from 'ember-cli-mirage';
 
 export default function() {
   this.urlPrefix = config.api.host;    // make this `http://localhost:8080`, for example, if your API is on a different server

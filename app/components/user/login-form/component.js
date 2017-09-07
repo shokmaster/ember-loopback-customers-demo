@@ -24,7 +24,7 @@ export default Component.extend({
      */
     submit() {
       const user = this.get('user');
-      if (user.validate({only: ['email', 'password']})) this.get('login')(user);
+      if (user.validate({only: ['email']})) this.get('login')(user);
     }
   }
 });
