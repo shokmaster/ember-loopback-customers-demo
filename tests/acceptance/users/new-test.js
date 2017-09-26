@@ -30,7 +30,7 @@ test('navigating to /users/new redirects to root / when authenticated', function
 test('viewing validation errors', function (assert) {
   visit('/users/new');
   andThen(function () {
-    assert.equal(server.schema.users.all().length, 1);
+    assert.equal(server.schema.users.all().length, 0);
     assert.equal(currentURL(), '/users/new');
   });
   fillIn('[name="email"]', 'test@foo.com');
@@ -43,7 +43,7 @@ test('viewing validation errors', function (assert) {
     assert.equal(find('.form-group:eq(1) .invalid-feedback').text(), 'must match Email');
     assert.equal(find('.form-group:eq(2) .invalid-feedback').text(), 'This is a very common password. Add another word or two. Uncommon words are better.');
     assert.equal(find('.form-group:eq(3) .invalid-feedback').text(), 'must match Password');
-    assert.equal(server.schema.users.all().length, 1);
+    assert.equal(server.schema.users.all().length, 0);
     assert.equal(currentURL(), '/users/new');
   });
 });
@@ -51,7 +51,7 @@ test('viewing validation errors', function (assert) {
 test('saving valid new user instance and redirecting to /users/login', function (assert) {
   visit('/users/new');
   andThen(function () {
-    assert.equal(server.schema.users.all().length, 1);
+    assert.equal(server.schema.users.all().length, 0);
     assert.equal(currentURL(), '/users/new');
   });
   andThen(function () {
@@ -62,7 +62,7 @@ test('saving valid new user instance and redirecting to /users/login', function 
     click('button[type="submit"]');
   });
   andThen(function () {
-    assert.equal(server.schema.users.all().length, 2);
+    assert.equal(server.schema.users.all().length, 1);
     assert.equal(currentURL(), '/users/login');
   });
 });
