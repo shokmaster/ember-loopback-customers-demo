@@ -29,8 +29,8 @@ test('/users/new link is present when unauthenticated', function (assert) {
 });
 
 test('/users/new link is not present when authenticated', function (assert) {
-  visit('/');
   authenticateSession(this.application);
+  visit('/');
   andThen(function () {
     assert.equal(find('[href="/users/new"]').length, 0);
   });
@@ -44,8 +44,8 @@ test('users/authenticate link is present when unauthenticated', function (assert
 });
 
 test('users/authenticate link is not present when authenticated', function (assert) {
-  visit('/');
   authenticateSession(this.application);
+  visit('/');
   andThen(function () {
     assert.equal(find('[href="/users/login"]').length, 0);
   });
@@ -59,8 +59,8 @@ test('session invalidation link is not present when unauthenticated', function (
 });
 
 test('session invalidation link is present when authenticated', function (assert) {
-  visit('/');
   authenticateSession(this.application);
+  visit('/');
   andThen(function () {
     assert.equal(find('.invalidate-session').length, 1);
   });
@@ -72,5 +72,22 @@ test('user is redirected to / after invalidating the session', function (assert)
   click('.invalidate-session');
   andThen(function () {
     assert.equal(currentURL(), '/');
+  });
+});
+
+test('/customers link is present when authenticated', function (assert) {
+  assert.expect(1);
+  authenticateSession(this.application);
+  visit('/');
+  andThen(() => {
+    assert.equal(find('[href="/customers"]').length, 1);
+  });
+});
+
+test('/customers link is not present when unauthenticated', function (assert) {
+  assert.expect(1);
+  visit('/');
+  andThen(() => {
+    assert.equal(find('[href="/customers"]').length, 0);
   });
 });
