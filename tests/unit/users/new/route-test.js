@@ -38,7 +38,10 @@ test('it should call rollbackAttributes on a new model on transition', function 
       };
     }
   });
-  route.actions.willTransition.call(route);
+  const fakeTransition = {
+    then(callback) { callback(); }
+  };
+  route.actions.willTransition.call(route, fakeTransition);
 });
 
 test('it should not call rollbackAttributes on a non-new model on transition', function (assert) {
@@ -57,5 +60,8 @@ test('it should not call rollbackAttributes on a non-new model on transition', f
       };
     }
   });
-  route.actions.willTransition.call(route);
+  const fakeTransition = {
+    then(callback) { callback(); }
+  };
+  route.actions.willTransition.call(route, fakeTransition);
 });
