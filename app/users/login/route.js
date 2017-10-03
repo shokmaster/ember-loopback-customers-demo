@@ -29,16 +29,19 @@ export default Route.extend(UnauthenticatedRouteMixin, {
      * Rollsback and removes the route's user model if it `isNew`.
      *
      * @function actions:willTransition
+     * @param {Object} transition A transition promise
      * @returns {undefined}
      */
-    willTransition() {
+    willTransition(transition) {
       const model = this.modelFor('users/login');
       // `rollbackAttributes` on a model that `isNew` both reverts all
       // attributes to their defaults and causes the record to be removed
       // from the store.
       // Thus, this is a good way to clean up new unsaved records that we
       // want to get rid of.
-      model.rollbackAttributes();
+      transition.then(() => {
+        model.rollbackAttributes();
+      });
     }
   }
 });

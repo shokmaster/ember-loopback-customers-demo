@@ -37,5 +37,8 @@ test('it should call rollbackAttributes on the model on transition', function (a
       };
     }
   });
-  route.actions.willTransition.call(route);
+  const fakeTransition = {
+    then(callback) { callback(); }
+  };
+  route.actions.willTransition.call(route, fakeTransition);
 });
