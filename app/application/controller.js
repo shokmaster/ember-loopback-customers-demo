@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-
-const { inject: { service } } = Ember;
 
 /**
  * Application controller is mostly a simple holder for the session service so
@@ -18,7 +16,7 @@ export default Controller.extend({
    * @see module:ember-simple-auth-loopback/services/session
    * @type {Object}
    */
-  session: service('session'),
+  session: service(),
 
   // =actions
 

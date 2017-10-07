@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-
-const { inject: { service } } = Ember;
 
 /**
  * The login controller handles the `loginUser` action by delegating to

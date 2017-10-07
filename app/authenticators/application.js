@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import Loopback from 'ember-simple-auth-loopback/authenticators/loopback';
 import config from '../config/environment';
-
-const { inject: { service } } = Ember;
 
 /**
  * Authenticates with a Loopback API server.
