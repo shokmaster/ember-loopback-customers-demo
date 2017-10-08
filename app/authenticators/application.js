@@ -40,11 +40,9 @@ export default Loopback.extend({
   authenticate(user, scope) {
     const { email, password } = user.getProperties('email', 'password');
     const promise = this._super(email, password, scope);
-    promise.catch(() => {
-      user.pushErrors({
-        base: ['Login failed.']
-      });
-    });
+    promise.catch(() => user.pushErrors({
+      base: ['Login failed.']
+    }));
     return promise;
   }
 });

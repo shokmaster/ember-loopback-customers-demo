@@ -79,15 +79,11 @@ test('/customers link is present when authenticated', function (assert) {
   assert.expect(1);
   authenticateSession(this.application);
   visit('/');
-  andThen(() => {
-    assert.equal(find('[href="/customers"]').length, 1);
-  });
+  andThen(() => assert.equal(find('[href="/customers"]').length, 1));
 });
 
 test('/customers link is not present when unauthenticated', function (assert) {
   assert.expect(1);
   visit('/');
-  andThen(() => {
-    assert.equal(find('[href="/customers"]').length, 0);
-  });
+  andThen(() => assert.equal(find('[href="/customers"]').length, 0));
 });

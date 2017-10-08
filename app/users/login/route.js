@@ -39,9 +39,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
       // from the store.
       // Thus, this is a good way to clean up new unsaved records that we
       // want to get rid of.
-      transition.then(() => {
-        model.rollbackAttributes();
-      });
+      transition.then(() => model.rollbackAttributes());
     }
   }
 });

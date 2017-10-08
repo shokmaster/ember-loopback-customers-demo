@@ -43,7 +43,7 @@ test('its `authenticate` method calls `makeRequest` with credentials from the pa
 
 test('its `authenticate` method adds an error to the base field of the passed user instance if authentication fails', function (assert) {
   assert.expect(1);
-  const done = assert.async();
+  //const done = assert.async();
   const authenticator = this.subject({
     makeRequest() {
       return Promise.reject({responseJSON: '{}'});
@@ -52,9 +52,6 @@ test('its `authenticate` method adds an error to the base field of the passed us
   const store = authenticator.get('store');
   run(() => {
     const user = store.createRecord('user');
-    authenticator.authenticate(user).catch(() => {
-      assert.ok(user.get('errors.base')[0].message);
-      done();
-    });
+    authenticator.authenticate(user).catch(() => assert.ok(user.get('errors.base')[0].message));
   });
 });

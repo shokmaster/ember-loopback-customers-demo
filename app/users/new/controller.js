@@ -22,9 +22,7 @@ export default Controller.extend({
      * @returns {undefined}
      */
     saveUser(user) {
-      user.save().then(() => {
-        this.transitionToRoute('application');
-      });
+      user.save().then(() => this.transitionToRoute('application'));
     }
   }
 });
