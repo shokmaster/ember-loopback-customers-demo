@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import Loopback from 'ember-simple-auth-loopback/authenticators/loopback';
 import config from '../config/environment';
-
-const { inject: { service } } = Ember;
 
 /**
  * Authenticates with a Loopback API server.
@@ -42,11 +40,9 @@ export default Loopback.extend({
   authenticate(user, scope) {
     const { email, password } = user.getProperties('email', 'password');
     const promise = this._super(email, password, scope);
-    promise.catch(() => {
-      user.pushErrors({
-        base: ['Login failed.']
-      });
-    });
+    promise.catch(() => user.pushErrors({
+      base: ['Login failed.']
+    }));
     return promise;
   }
 });
