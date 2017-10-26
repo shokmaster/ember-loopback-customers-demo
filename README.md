@@ -5,7 +5,7 @@
 [![CodeClimate](https://img.shields.io/codeclimate/github/randallmorey/ember-loopback-customers-demo.svg?style=flat-square)](https://codeclimate.com/github/randallmorey/ember-loopback-customers-demo)
 [![Inline docs](https://inch-ci.org/github/randallmorey/ember-loopback-customers-demo.svg?branch=master&style=flat-square)](http://inch-ci.org/github/randallmorey/ember-loopback-customers-demo)
 [![David](https://img.shields.io/david/dev/randallmorey/ember-loopback-customers-demo.svg?style=flat-square)](https://github.com/randallmorey/ember-loopback-customers-demo)
-[![Ember 2.16.0-beta.2](https://img.shields.io/badge/ember-2.16.0-beta.2-blue.svg?style=flat-square)](https://github.com/ember-cli/ember-cli/tree/v2.16.0-beta.2)
+[![Ember 2.16.0](https://img.shields.io/badge/ember-2.16.0-blue.svg?style=flat-square)](https://github.com/emberjs/ember.js/tree/v2.16.0)
 [![License](https://img.shields.io/npm/l/ember-loopback-customers-demo.svg?style=flat-square)](https://github.com/randallmorey/ember-loopback-customers-demo/blob/master/LICENSE)
 
 A demonstration app with authentication and simple CRUD for customer records, targeting a Loopback backend.
