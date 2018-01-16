@@ -9,7 +9,7 @@ addons:
     packages:
      - fluxbox
 
-sudo: false
+sudo: required
 
 cache:
   directories:
